@@ -142,7 +142,7 @@ One of the final quirks in the implementation of the DeltaCNN framework was the 
 
 ## ResNet DeltaCNN Implementation
 
-Although we were not successful at getting the Pose-ResNet to work, we were still able to get a ResNet-50 architecture running with MNIST. This section discusses which errors we ran into, and which ones we were able to resolve. We will show the implementation of the DeltaCNN functions, but will not report any results obtained with it.
+Although we were not successful at getting the Pose-ResNet to work ([code](https://github.com/austinjphillips/deltacnn-paper-reproduction/blob/main/DeltaCNN-Pose-Estimation.ipynb), we were still able to get a ResNet-50 architecture running with MNIST ([code](https://github.com/austinjphillips/deltacnn-paper-reproduction/blob/main/DeltaCNN-MNIST.ipynb). This section discusses which errors we ran into, and which ones we were able to resolve. We will show the implementation of the DeltaCNN functions, but will not report any results obtained with it.
 We used the ResNet-50 architecture from [Microsoft’s Pose-ResNet](https://github.com/microsoft/human-pose-estimation.pytorch/). The changes made follow similarly as explained above. Pay careful attention to modifying the functions of the network; in particular, the fully-connected layer remains an `nn.Linear` and one should not modify the `nn.Sequential` in the make_layer function:
 
 ```python

@@ -4,9 +4,7 @@
 
 This repo is intended to prove the reproducibility of the paper *End-to-End CNN inference of Sparse Frame Differences in Videos* [1]*.* The initial goal was to reproduce the Pose-Estimation results implemented on a ResNet architecture that were shown in the paper, re-making the network architecture ourselves and using the authors’ implementation of the DeltaCNN layers. Due to difficulties with compatibility of existing libraries and the inaccessibility of datasets, a much simple network architecture was tested on the MNIST dataset. 
 
-The blogpost starts with a short **Introduction** to shed light on the topic of the paper. Thereafter,  in **DeltaCNN theory** the information the reader requires is explained briefly. Next, the code implementation and the related problems are shown in **DeltaCNN Framework Integration** and **ResNet DeltaCNN Implementation**. The results of reproducibility study can be found in **Results**. Finally, the blog post ends with a **Conclusion.**
-
-The code produced for this reproduction project can be found on [Google Colab](https://colab.research.google.com/drive/1_Ya_VqYq2FAQemDnHHCxeeFnDmsHxqOz?usp=sharing).
+We start with a short **Introduction** to shed light on the topic of the paper. Thereafter,  in **DeltaCNN theory** the information the reader requires is explained briefly. Next, the code implementation and the related problems are shown in **DeltaCNN Framework Integration** and **ResNet DeltaCNN Implementation**. The results of reproducibility study can be found in **Results**. Finally, we end with a **Conclusion** on the paper reproduction.
 
 ## Introduction
 

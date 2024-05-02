@@ -20,9 +20,7 @@ With the paper, the authors enabled sparse end-to-end neural networks for video 
 
 To give an overview of the forward pass of a sparse neural network, a simple model is shown in the figure below. The first frame is processed as if it where a normal neural network. This serves later on as backbone to contain the irrelevant information (e.g. the static background) that is no longer processed in the next frame. For the second frame, the difference between the first and the second frame is used as sparse input for the network. The peculiarities ****related to the processing of the sparse data is explained later. The output of the second frame is a combination of the dense first layer’s output and sparse output of the second frame. 
 
-![alt text](https://github.com/austinjphillips/deltacnn-paper-reproduction/blob/main/deltacnn-forward-pass.jpg?raw=true)
-
-    *figure: forward pass simple DeltaCNN [1]* 
+![Forward pass simple DeltaCNN [1]](https://github.com/austinjphillips/deltacnn-paper-reproduction/blob/main/deltacnn-forward-pass.png?raw=true)
 
 For this sparse end-to-end neural network to function effectively in video applications, there are two problems to be solved. Firstly, GPUs are the main processing units for neural networks.  Sparsifying requires more conditional control operations which are not well-performed by GPUs, increasing the processing time. To effectively use GPUs, operations should be adapted to the strengths of GPU, which are matrix operations. To do so, the authors introduced update masks and hybrid kernels. Secondly, non-linear layers require previous input data to obtain accurate intermediate sparse result. Here, buffers are introduced to keep track of this past data.
 

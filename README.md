@@ -1,6 +1,6 @@
 # Paper Reproduction | DeltaCNN: End-to-End CNN Inference of Sparse Frame Differences in Video
-## Students
-Austin Phillips, Tilen Potočnik, Sebastien Van den Abeele
+
+## Austin Phillips, Tilen Potočnik, Sebastien Van den Abeele
 
 This repo is intended to prove the reproducibility of the paper *End-to-End CNN inference of Sparse Frame Differences in Videos* [1]*.* The initial goal was to reproduce the Pose-Estimation results implemented on a ResNet architecture that were shown in the paper, re-making the network architecture ourselves and using the authors’ implementation of the DeltaCNN layers. Due to difficulties with compatibility of existing libraries and the inaccessibility of datasets, a much simple network architecture was tested on the MNIST dataset. 
 

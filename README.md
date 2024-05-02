@@ -140,8 +140,8 @@ class DCNet(deltacnn.DCModule):
 
 One of the final quirks in the implementation of the DeltaCNN framework was the need for equal training and testing batch sizes. Otherwise, the following error is received for a training batch size of 8 and a testing batch size 16:
 
-> `RuntimeError: The size of tensor a (8) must match the size of tensor b (16) at non-singleton dimension 0`
-> 
+`RuntimeError: The size of tensor a (8) must match the size of tensor b (16) at non-singleton dimension 0`
+ 
 
 ## ResNet DeltaCNN Implementation
 
@@ -181,11 +181,13 @@ class BasicBlock(deltacnn.DCModule): # or the class Bottleneck(deltacnn.DCModule
 ```
 
 If you try to sparsify an already sparsified input, you will receive the following error:
+
 `AttributeError: 'tuple' object has no attribute 'clone'`
 
 Furthermore, the DeltaCNN library has a specific function to perform the residual connection within the ResNet blocks. Rather than using x = x + residual, one should use the `deltacnn.DCAdd()` otherwise the sparse delta and sparse update mask will not be respectively added properly at the residual connection.
 
 When performing the final activation function after the residual connection in the ResNet block, we determine that one must specify the activation within the DCAdd() function. If the residual connection and activation are performed on separate lines, one will receive the following error:
+
 `RuntimeError: CUDA error: an illegal memory access was encountered`
 
 It is not known as to why this error arises. As an example, see the following:
@@ -220,10 +222,13 @@ def forward(self, x)
 ```
 
 With these changes, it was possible to run the DeltaCNN ResNet-50 architecture on the MNIST dataset. The error that we ran into preventing us from further development on performing Pose Estimation using the Pose-ResNet is the following: 
+
 `torch.jit._trace.TracingCheckError: Tracing failed sanity checks!`
 
-We could not figure out how to resolve this error. Another error that were encountered includes:
+We could not figure out how to resolve this error. Other errors that were encountered include:
+
 `Warning: Kernel sizes other than 7x7, 5x5, 3x3 and 1x1 not supported. Got 3x7`
+
 `RuntimeError: Caught an unknown exception!`
 
 This was resolved by remembering to convert the filters into DeltaCNN format (see above).

@@ -37,6 +37,7 @@ $$
 ## DeltaCNN Framework Integration
 
 We were unable to install the DeltaCNN library according to the instructions provided in the [DeltaCNN GitHub repository](https://github.com/facebookresearch/DeltaCNN). Although the module was correctly installed and added to the path, Colab could not find it when importing. We received the error:
+
 `ModuleNotFoundError: No module named 'deltacnn’`
 
 Rather, we propose an alternative installation approach by **using pip** to install the DeltaCNN library: `pip install /PathTo/DeltaCNN`. Using this approach, we were able to successfully import the module. The total installation time took about 9 minutes.
@@ -53,9 +54,11 @@ net.process_filters()
 ```
 
 Failing to convert the filters into DeltaCNN format will result in the error:
+
 `RuntimeError: Caught an unknown exception!`
 
 The final step before modifying the layers of the CNN architecture is to ensure that your training and testing samples are moved to the GPU prior to feeding them into the network. This can be done using `x.to(device), y.to(device)` , otherwise the following error will arise:
+
 `RuntimeError: input must be a CUDA tensor`
 
 Now, one can start modifying the standard CNN architecture to employ the DeltaCNN functions. In essence, the only changes that must be made are to add a *dense-to-sparse* (`DCSparsify()`) layer at the beginning and a *sparse-to-dense* (`DCDensify()`) layer at the end. The standard CNN architecture from Assignment 3 and the modified DeltaCNN architecture can be seen below:

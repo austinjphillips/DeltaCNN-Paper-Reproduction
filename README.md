@@ -20,7 +20,7 @@ With the paper, the authors enabled sparse end-to-end neural networks for video 
 
 To give an overview of the forward pass of a sparse neural network, a simple model is shown in the figure below. The first frame is processed as if it where a normal neural network. This serves later on as backbone to contain the irrelevant information (e.g. the static background) that is no longer processed in the next frame. For the second frame, the difference between the first and the second frame is used as sparse input for the network. The peculiarities ****related to the processing of the sparse data is explained later. The output of the second frame is a combination of the dense first layer’s output and sparse output of the second frame. 
 
-![Untitled](DeltaCNN%20End-to-End%20CNN%20Inference%20of%20Sparse%20Frame%20%20e4296ceaf6b641fb9d14e5375dd552ca/Untitled.png)
+![alt text](https://github.com/austinjphillips/deltacnn-paper-reproduction/blob/main/deltacnn-forward-pass.jpg?raw=true)
 
     *figure: forward pass simple DeltaCNN [1]* 
 
